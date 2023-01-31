@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
@@ -43,7 +44,7 @@
                             <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getNom()}</td>
                             <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getPrenom()}</td>
                             <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getTitre()}</td>
-                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getRv().size()}</td>
+                            <td class="whitespace-nowrap p-4 text-sm text-gray-500"><a href="${pageContext.request.contextPath}/rv/index?client_id=${client.id}" class="text-indigo-600 hover:text-indigo-900">${client.getRv().size()}</a></td>
                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                 <a href="${pageContext.request.contextPath}/client/edit?id=${client.id}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
                             </td>

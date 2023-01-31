@@ -81,6 +81,14 @@ public class Creneau implements Serializable {
         this.mFin = mFin;
     }
 
+    public String getHeureDebut() {
+        return hdDebut + ":" + mdDebut;
+    }
+
+    public String getHeureFin() {
+        return hFin + ":" + mFin;
+    }
+
     public List<RV> getRv() {
         return rv;
     }

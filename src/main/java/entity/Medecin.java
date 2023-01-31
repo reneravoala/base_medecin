@@ -66,6 +66,10 @@ public class Medecin implements Serializable {
         this.prenom = prenom;
     }
 
+    public String getNomComplet() {
+        return titre + " " + nom + " " + prenom;
+    }
+
     public List<Creneau> getCreneaux() {
         return creneaux;
     }
