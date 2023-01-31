@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clients</title>
+    <title>Médecins</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,11 +12,11 @@
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-            <h1 class="text-xl font-semibold text-gray-900">Clients</h1>
-            <p class="mt-2 text-sm text-gray-700">Liste des clients</p>
+            <h1 class="text-xl font-semibold text-gray-900">Médecins</h1>
+            <p class="mt-2 text-sm text-gray-700">Liste des médecins</p>
         </div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <a href="${pageContext.request.contextPath}/add" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Ajouter</a>
+            <a href="${pageContext.request.contextPath}/medecin/add" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Ajouter</a>
         </div>
     </div>
     <div class="mt-8 flex flex-col">
@@ -36,14 +36,14 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
-                        <c:forEach items="${clients}" var="client">
+                        <c:forEach items="${medecins}" var="medecin">
                         <tr class="divide-x divide-gray-200">
-                            <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">${client.getVersion()}</td>
-                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getNom()}</td>
-                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getPrenom()}</td>
-                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${client.getTitre()}</td>
+                            <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">${medecin.getVersion()}</td>
+                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${medecin.getNom()}</td>
+                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${medecin.getPrenom()}</td>
+                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">${medecin.getTitre()}</td>
                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                <a href="${pageContext.request.contextPath}/edit?id=${client.id}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                                <a href="${pageContext.request.contextPath}/medecin/edit?id=${medecin.id}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
                             </td>
                         </tr>
                         </c:forEach>

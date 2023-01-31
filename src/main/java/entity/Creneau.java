@@ -9,22 +9,22 @@ import java.util.List;
 public class Creneau implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     
     @Column(name = "version")
-    private int version;
+    private Integer version;
     
     @Column(name = "hd_debut")
-    private int hdDebut;
+    private Integer hdDebut;
     
     @Column(name = "md_debut")
-    private int mdDebut;
+    private Integer mdDebut;
     
     @Column(name = "h_fin")
-    private int hFin;
+    private Integer hFin;
     
     @Column(name = "m_fin")
-    private int mFin;
+    private Integer mFin;
 
     @OneToMany(mappedBy = "creneau")
     private List<RV> rv;
@@ -33,51 +33,51 @@ public class Creneau implements Serializable {
     @JoinColumn(name = "medecins_id")
     private Medecin medecin;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-    public int getHdDebut() {
+    public Integer getHdDebut() {
         return hdDebut;
     }
 
-    public void setHdDebut(int hdDebut) {
+    public void setHdDebut(Integer hdDebut) {
         this.hdDebut = hdDebut;
     }
 
-    public int getMdDebut() {
+    public Integer getMdDebut() {
         return mdDebut;
     }
 
-    public void setMdDebut(int mdDebut) {
+    public void setMdDebut(Integer mdDebut) {
         this.mdDebut = mdDebut;
     }
 
-    public int gethFin() {
+    public Integer gethFin() {
         return hFin;
     }
 
-    public void sethFin(int hFin) {
+    public void sethFin(Integer hFin) {
         this.hFin = hFin;
     }
 
-    public int getmFin() {
+    public Integer getmFin() {
         return mFin;
     }
 
-    public void setmFin(int mFin) {
+    public void setmFin(Integer mFin) {
         this.mFin = mFin;
     }
 

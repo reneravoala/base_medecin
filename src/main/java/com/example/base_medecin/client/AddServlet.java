@@ -1,4 +1,4 @@
-package com.example.base_medecin;
+package com.example.base_medecin.client;
 
 import entity.Client;
 import repository.ClientRepository;
@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "addServlet", value = "/add")
+@WebServlet(name = "clientAddServlet", value = "/client/add")
 public class AddServlet extends HttpServlet {
     private final ClientRepository clientRepository = new ClientRepository();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
-        request.getRequestDispatcher("/add.jsp").forward(request, response);
+        request.getRequestDispatcher("/client/add.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -30,7 +30,7 @@ public class AddServlet extends HttpServlet {
         client.setTitre(titre);
         client.setVersion(version);
         clientRepository.save(client);
-        response.sendRedirect(request.getContextPath() + "/index");
+        response.sendRedirect(request.getContextPath() + "/client/index");
     }
 
 

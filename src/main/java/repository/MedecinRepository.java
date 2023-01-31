@@ -1,6 +1,6 @@
 package repository;
 
-import entity.Client;
+import entity.Medecin;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,43 +10,43 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class ClientRepository {
+public class MedecinRepository {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
     EntityManager em = emf.createEntityManager();
 
     CriteriaBuilder builder = em.getCriteriaBuilder();
 
-    public Client find(int id)
+    public Medecin find(int id)
     {
-        return em.find(Client.class, id);
+        return em.find(Medecin.class, id);
     }
 
-    public List<Client> findAll(String search)
+    public List<Medecin> findAll(String search)
     {
-        CriteriaQuery<Client> query = builder.createQuery(Client.class);
-        Root<Client> m = query.from(Client.class);
+        CriteriaQuery<Medecin> query = builder.createQuery(Medecin.class);
+        Root<Medecin> m = query.from(Medecin.class);
         query.select(m);
         query.where(builder.like(m.get("nom"), "%" + search + "%"));
 
         return em.createQuery(query).getResultList();
     }
 
-    public List<Client> findAll()
+    public List<Medecin> findAll()
     {
         return findAll("");
     }
 
-    public Client save(Client Client)
+    public Medecin save(Medecin Medecin)
     {
         em.getTransaction().begin();
-        em.persist(Client);
+        em.persist(Medecin);
         em.getTransaction().commit();
-        return Client;
+        return Medecin;
     }
 
-    public void delete(Client Client)
+    public void delete(Medecin Medecin)
     {
-        em.remove(Client);
+        em.remove(Medecin);
     }
 }

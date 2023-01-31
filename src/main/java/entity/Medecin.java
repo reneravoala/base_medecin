@@ -9,10 +9,10 @@ import java.util.List;
 public class Medecin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "version")
-    private int version;
+    private Integer version;
 
     @Column(name = "titre")
     private String titre;
@@ -26,4 +26,51 @@ public class Medecin implements Serializable {
     @OneToMany(mappedBy = "medecin")
     private List<Creneau> creneaux;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public List<Creneau> getCreneaux() {
+        return creneaux;
+    }
+
+    public void setCreneaux(List<Creneau> creneaux) {
+        this.creneaux = creneaux;
+    }
 }

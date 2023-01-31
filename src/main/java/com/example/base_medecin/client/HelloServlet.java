@@ -1,4 +1,4 @@
-package com.example.base_medecin;
+package com.example.base_medecin.client;
 
 import entity.Client;
 import repository.ClientRepository;
@@ -9,22 +9,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/index")
+@WebServlet(name = "clientIndexservlet", value = "/client/index")
 public class HelloServlet extends HttpServlet {
     private final ClientRepository ClientRepository = new ClientRepository();
 
-    private List<Client> clients;
-
     @Override
     public void init() throws ServletException {
-        clients = ClientRepository.findAll("");
         super.init();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        List<Client> clients = ClientRepository.findAll();
         response.setContentType("text/html");
         request.setAttribute("clients", clients);
-        request.getRequestDispatcher("/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/client/list.jsp").forward(request, response);
     }
 
     public void destroy() {

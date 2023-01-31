@@ -11,18 +11,15 @@
 <body>
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
     <div class="sm:flex sm:items-center">
-        <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/edit" method="post">
-            <input type="hidden" name="id">
+        <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/client/edit" method="post">
             <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
                 <div class="space-y-6 sm:space-y-5">
                     <div>
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Modifier une marque</h3>
-                        <p class="mt-1 max-w-2xl text-sm text-gray-500">Ce nom sera affiché comme représentation de la
-                            marque</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">Modifier un client</h3>
                     </div>
 
                     <div class="space-y-6 sm:space-y-5">
-                        <input type="hidden" value="${client.getId()}">
+                        <input type="hidden" value="${client.getId()}" name="id">
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="nom" class="block text-sm font-medium text-gray-700 p-2">Nom</label>
                             <div class="mt-1">
@@ -51,7 +48,7 @@
 
                     <div class="pt-5">
                         <div class="flex justify-end">
-                            <a href="${pageContext.request.contextPath}/index" type="button" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Annuler</a>
+                            <a href="${pageContext.request.contextPath}/client/index" type="button" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Annuler</a>
                             <button type="submit" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sauver</button>
                         </div>
                     </div>
