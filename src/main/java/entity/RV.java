@@ -2,6 +2,8 @@ package entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
@@ -33,6 +35,11 @@ public class RV implements Serializable {
 
     public Date getJour() {
         return jour;
+    }
+
+    public String getJourString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(jour);
     }
 
     public void setJour(Date jour) {
