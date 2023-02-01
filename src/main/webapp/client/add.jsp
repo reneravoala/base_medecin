@@ -10,6 +10,7 @@
 <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
     <div class="sm:flex sm:items-center">
         <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/client/add" method="post">
@@ -23,25 +24,25 @@
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="nom" class="block text-sm font-medium text-gray-700 p-2">Nom</label>
                             <div class="mt-1">
-                                <input type="text" name="nom" id="nom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom">
+                                <input type="text" name="nom" id="nom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom" required>
                             </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="prenom" class="block text-sm font-medium text-gray-700 p-2">Prénom</label>
                             <div class="mt-1">
-                                <input type="text" name="prenom" id="prenom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom">
+                                <input type="text" name="prenom" id="prenom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom" required>
                             </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="titre" class="block text-sm font-medium text-gray-700 p-2">Titre</label>
                             <div class="mt-1">
-                                <input type="text" name="titre" id="titre" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Titre">
+                                <input type="text" name="titre" id="titre" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Titre" required maxlength="5">
                             </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="version" class="block text-sm font-medium text-gray-700 p-2">Version</label>
                             <div class="mt-1">
-                                <input type="number" name="version" id="version" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Version">
+                                <input type="number" name="version" id="version" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Version" required>
                             </div>
                         </div>
                     </div>

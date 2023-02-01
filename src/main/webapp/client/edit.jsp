@@ -10,6 +10,7 @@
 <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
     <div class="sm:flex sm:items-center">
         <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/client/edit" method="post">

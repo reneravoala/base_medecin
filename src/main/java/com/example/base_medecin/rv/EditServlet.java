@@ -2,6 +2,7 @@ package com.example.base_medecin.rv;
 
 import entity.RV;
 import repository.ClientRepository;
+import repository.CreneauRepository;
 import repository.RvRepository;
 
 import javax.servlet.ServletException;
@@ -17,11 +18,14 @@ public class EditServlet extends HttpServlet {
     private final RvRepository rvRepository = new RvRepository();
 
     private final ClientRepository clientRepository = new ClientRepository();
+
+    private final CreneauRepository creneauRepository = new CreneauRepository();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         request.setAttribute("clients", clientRepository.findAll());
+        request.setAttribute("creneaux", creneauRepository.findAll());
         request.setAttribute("rv", rvRepository.find(Integer.parseInt(request.getParameter("id"))));
         request.getRequestDispatcher("/rv/edit.jsp").forward(request, response);
     }

@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
     <div class="sm:flex sm:items-center">
         <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/creneau/add" method="post">

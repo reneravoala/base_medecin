@@ -29,6 +29,7 @@ public class CreneauRepository {
         Root<Creneau> m = query.from(Creneau.class);
         query.select(m);
 
+        em.clear();
         return em.createQuery(query).getResultList();
     }
 
