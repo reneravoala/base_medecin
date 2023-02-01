@@ -22,13 +22,13 @@
                     </div>
 
                     <div class="space-y-6 sm:space-y-5">
-                        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                        <div class="sm:grid sm:grid-cols-2 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="medecins_id" class="block text-sm font-medium text-gray-700 p-2">Medecin</label>
                             <div class="mt-1">
                                 <div class="flex justify-center">
-                                    <div class="mb-3 xl:w-96">
+                                    <div class="mb-3 w-full">
                                         <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                name="medecins_id" id="medecins_id" aria-label="Default select example">
+                                                name="medecins_id" id="medecins_id" aria-label="Default select example" required>
                                             <c:forEach items="${medecins}" var="medecin">
                                                 <option value="${medecin.getId()}">${medecin.getTitre()} ${medecin.getPrenom()} ${medecin.getNom()}</option>
                                             </c:forEach>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="form-group mb-6">
-                                <input type="text" name="hd_debut" class="form-control block w-full
+                                <input required type="text" name="hd_debut" class="form-control block w-full
           px-3
           py-1.5
           text-base
@@ -55,7 +55,7 @@
                                        aria-describedby="emailHelp123" placeholder="heure">
                             </div>
                             <div class="form-group mb-6">
-                                <input type="text" class="form-control
+                                <input required type="text" class="form-control
           block
           w-full
           px-3
@@ -75,7 +75,7 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="form-group mb-6">
-                                <input type="text" name="h_fin" class="form-control block w-full
+                                <input required type="text" name="h_fin" class="form-control block w-full
           px-3
           py-1.5
           text-base
@@ -91,7 +91,7 @@
                                        aria-describedby="emailHelp123" placeholder="heure">
                             </div>
                             <div class="form-group mb-6">
-                                <input type="text" class="form-control
+                                <input required type="text" class="form-control
           block
           w-full
           px-3
@@ -114,7 +114,7 @@
                             <div class="mt-1">
                                 <input type="number" name="version" id="version"
                                        class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                       placeholder="Version">
+                                       placeholder="Version" required>
                             </div>
                         </div>
                     </div>

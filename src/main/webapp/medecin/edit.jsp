@@ -25,25 +25,25 @@
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="nom" class="block text-sm font-medium text-gray-700 p-2">Nom</label>
                             <div class="mt-1">
-                                <input type="text" name="nom" id="nom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom" value="${medecin.getNom()}">
+                                <input type="text" name="nom" id="nom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom" value="${medecin.getNom()}" required>
                             </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="prenom" class="block text-sm font-medium text-gray-700 p-2">Prénom</label>
                             <div class="mt-1">
-                                <input type="text" name="prenom" id="prenom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom" value="${medecin.getPrenom()}">
+                                <input type="text" name="prenom" id="prenom" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Nom" value="${medecin.getPrenom()}" required>
                             </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="titre" class="block text-sm font-medium text-gray-700 p-2">Titre</label>
                             <div class="mt-1">
-                                <input type="text" name="titre" id="titre" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Titre" value="${medecin.getTitre()}">
+                                <input type="text" name="titre" id="titre" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Titre" value="${medecin.getTitre()}" required>
                             </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="version" class="block text-sm font-medium text-gray-700 p-2">Version</label>
                             <div class="mt-1">
-                                <input type="number" name="version" id="version" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Version" value="${medecin.getVersion()}">
+                                <input type="number" name="version" id="version" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Version" value="${medecin.getVersion()}" required>
                             </div>
                         </div>
                     </div>

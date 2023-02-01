@@ -24,7 +24,7 @@
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="client_id" class="block text-sm font-medium text-gray-700 p-2">Client</label>
                             <div class="mt-1">
-                                <select name="client_id" id="client_id" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                <select name="client_id" id="client_id" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
                                     <c:forEach items="${clients}" var="client">
                                         <option value="${client.getId()}">${client.getPrenom()} ${client.getNom()}</option>
                                     </c:forEach>
@@ -34,7 +34,7 @@
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="creneau_id" class="block text-sm font-medium text-gray-700 p-2">Créneaux</label>
                             <div class="mt-1">
-                                <select name="creneau_id" id="creneau_id" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                <select name="creneau_id" id="creneau_id" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
                                     <c:forEach items="${creneaux}" var="creneau">
                                         <option value="${creneau.getId()}">${creneau.getHeureDebut()} - ${creneau.getHeureFin()} (${creneau.getMedecin().getNomComplet()})</option>
                                     </c:forEach>
@@ -44,7 +44,7 @@
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="jour" class="block text-sm font-medium text-gray-700 p-2">Jour du rendez-vous</label>
                             <div class="mt-1">
-                                <input type="date" name="jour" id="jour" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Jour">
+                                <input type="date" name="jour" id="jour" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Jour" required>
                             </div>
                         </div>
                     </div>

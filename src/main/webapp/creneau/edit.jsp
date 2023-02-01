@@ -13,7 +13,7 @@
 <%@ include file="../header.jsp" %>
 <div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-full xl:w-2/3">
     <div class="sm:flex sm:items-center">
-        <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/creneau/add" method="post">
+        <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/creneau/edit" method="post">
             <input type="hidden" name="id" value="${creneau.getId()}">
             <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
                 <div class="space-y-6 sm:space-y-5">
@@ -22,12 +22,12 @@
                     </div>
 
                     <div class="space-y-6 sm:space-y-5">
-                        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                        <div class="sm:grid sm:grid-cols-2 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="medecins_id" class="block text-sm font-medium text-gray-700 p-2">Medecin</label>
                             <div class="mt-1">
                                 <div class="flex justify-center">
                                     <div class="mb-3 xl:w-96">
-                                        <select value="${creneau.medecin.getId()}" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="medecins_id" id="medecins_id" aria-label="Default select example">
+                                        <select value="${creneau.medecin.getId()}" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="medecins_id" id="medecins_id" aria-label="Default select example" required>
                                             <option>Select medecin</option>
                                             <c:forEach items="${medecins}" var="medecin">
                                                 <option value="${medecin.getId()}" <c:if test="${medecin.getId() == creneau.getMedecin().getId() }"> selected</c:if>>${medecin.getTitre()} ${medecin.getPrenom()} ${medecin.getNom()}</option>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="form-group mb-6">
-                                <input type="text" value="${creneau.getHdDebut()}" name="hd_debut" class="form-control block w-full
+                                <input required type="text" value="${creneau.getHdDebut()}" name="hd_debut" class="form-control block w-full
           px-3
           py-1.5
           text-base
@@ -55,7 +55,7 @@
                                        aria-describedby="emailHelp123" placeholder="heure">
                             </div>
                             <div class="form-group mb-6">
-                                <input type="text"  value="${creneau.getMdDebut()}" class="form-control
+                                <input required type="text"  value="${creneau.getMdDebut()}" class="form-control
           block
           w-full
           px-3
@@ -75,7 +75,7 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="form-group mb-6">
-                                <input type="text"  value="${creneau.gethFin()}" name="h_fin" class="form-control block w-full
+                                <input required type="text"  value="${creneau.gethFin()}" name="h_fin" class="form-control block w-full
           px-3
           py-1.5
           text-base
@@ -91,7 +91,7 @@
                                        aria-describedby="emailHelp123" placeholder="heure">
                             </div>
                             <div class="form-group mb-6">
-                                <input type="text" value="${creneau.getmFin()}" class="form-control
+                                <input required type="text" value="${creneau.getmFin()}" class="form-control
           block
           w-full
           px-3
@@ -112,7 +112,7 @@
                         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label for="version" class="block text-sm font-medium text-gray-700 p-2">Version</label>
                             <div class="mt-1">
-                                <input type="number" name="version" id="version" value="${creneau.getVersion()}" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Version">
+                                <input required type="number" name="version" id="version" value="${creneau.getVersion()}" class="p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Version">
                             </div>
                         </div>
                     </div>
