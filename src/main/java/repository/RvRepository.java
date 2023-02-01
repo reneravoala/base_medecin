@@ -46,6 +46,7 @@ public class RvRepository {
         rv.join("creneau");
         query.where(builder.equal(rv.get("client"), clientId));
 
+        em.clear();
         return em.createQuery(query).getResultList();
     }
 

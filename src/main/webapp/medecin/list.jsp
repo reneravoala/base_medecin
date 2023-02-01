@@ -11,7 +11,7 @@
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
+<div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-full xl:w-2/3">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
             <h1 class="text-xl font-semibold text-gray-900">Médecins</h1>

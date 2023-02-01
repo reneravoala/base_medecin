@@ -7,10 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
+<div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-full xl:w-2/3">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
             <h1 class="text-xl font-semibold text-gray-900">Créneaux</h1>

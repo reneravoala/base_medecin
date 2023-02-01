@@ -79,6 +79,9 @@ public class Client implements Serializable {
         this.prenom = prenom;
     }
 
+    public String getNomComplet() {
+        return titre + " " + nom + " " + prenom;
+    }
     public Collection<RV> getRv() {
         return rv;
     }

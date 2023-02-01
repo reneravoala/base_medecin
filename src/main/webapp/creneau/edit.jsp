@@ -7,10 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-2/3">
+<div class="my-5 mx-auto px-4 sm:px-6 lg:px-8 w-full xl:w-2/3">
     <div class="sm:flex sm:items-center">
         <form class="space-y-8 divide-y divide-gray-200" action="${pageContext.request.contextPath}/creneau/add" method="post">
             <input type="hidden" name="id" value="${creneau.getId()}">
@@ -29,7 +30,7 @@
                                         <select value="${creneau.medecin.getId()}" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="medecins_id" id="medecins_id" aria-label="Default select example">
                                             <option>Select medecin</option>
                                             <c:forEach items="${medecins}" var="medecin">
-                                                <option value="${medecin.getId()}">${medecin.getTitre()} ${medecin.getPrenom()} ${medecin.getNom()}</option>
+                                                <option value="${medecin.getId()}" <c:if test="${medecin.getId() == creneau.getMedecin().getId() }"> selected</c:if>>${medecin.getTitre()} ${medecin.getPrenom()} ${medecin.getNom()}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
