@@ -43,7 +43,7 @@
                                 <td class="whitespace-nowrap p-4 text-sm text-gray-500"> ${creneau.getMedecin().getTitre()} ${creneau.getMedecin().getNom()} ${creneau.getMedecin().getPrenom()}</td>
                                 <td class="whitespace-nowrap p-4 text-sm text-gray-500">${creneau.getRv().size()}</td>
                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                    <a href="${pageContext.request.contextPath}/medecin/edit?id=${medecin.id}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                                    <a href="${pageContext.request.contextPath}/creneau/edit?id=${creneau.getId()}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
                                 </td>
                             </tr>
                         </c:forEach>

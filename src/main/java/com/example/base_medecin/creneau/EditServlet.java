@@ -1,5 +1,6 @@
 package com.example.base_medecin.creneau;
 
+import entity.Creneau;
 import entity.Medecin;
 import repository.CreneauRepository;
 import repository.MedecinRepository;
@@ -10,32 +11,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "creneauEditServlet", value = "/creneau/edit")
 public class EditServlet extends HttpServlet {
-    private final CreneauRepository medecinRepository = new MedecinRepository();
+    private final CreneauRepository creneauRepository = new CreneauRepository();
+    private final MedecinRepository medecinRepository = new MedecinRepository();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        List<Medecin> medecin = medecinRepository.findAll("");
 
-        request.setAttribute("medecin", medecinRepository.find(Integer.parseInt(request.getParameter("id"))));
-        request.getRequestDispatcher("/medecin/edit.jsp").forward(request, response);
+        response.setContentType("text/html");
+        request.setAttribute("medecins", medecin);
+
+        request.setAttribute("creneau", creneauRepository.find(Integer.parseInt(request.getParameter("id"))));
+        request.getRequestDispatcher("/creneau/edit.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String titre = request.getParameter("titre");
+
         int version = Integer.parseInt(request.getParameter("version"));
-        Medecin medecin = medecinRepository.find(Integer.parseInt(request.getParameter("id")));
-        medecin.setNom(nom);
-        medecin.setPrenom(prenom);
-        medecin.setTitre(titre);
-        medecin.setVersion(version);
-        medecinRepository.save(medecin);
-        response.sendRedirect(request.getContextPath() + "/medecin/index");
+        int hd_debut = Integer.parseInt(request.getParameter("hd_debut"));
+        int md_debut = Integer.parseInt(request.getParameter("md_debut"));
+        int h_fin = Integer.parseInt(request.getParameter("h_fin"));
+        int m_fin = Integer.parseInt(request.getParameter("m_fin"));
+        int medecins_id = Integer.parseInt(request.getParameter("medecins_id"));
+
+        Creneau creneau = creneauRepository.find(Integer.parseInt(request.getParameter("id")));
+        creneau.sethFin(h_fin);
+        creneau.setVersion(version);
+        creneau.setmFin(m_fin);
+        creneau.setHdDebut(hd_debut);
+        creneau.setMdDebut(md_debut);
+        creneau.setMedecin(medecinRepository.find(medecins_id));
+
+        creneauRepository.save(creneau);
+        response.sendRedirect(request.getContextPath() + "/creneau");
     }
 
     public void destroy() {

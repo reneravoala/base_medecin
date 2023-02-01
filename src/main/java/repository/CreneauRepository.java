@@ -2,6 +2,7 @@ package repository;
 
 import entity.Client;
 import entity.Creneau;
+import entity.Medecin;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,6 +17,12 @@ public class CreneauRepository {
     EntityManager em = emf.createEntityManager();
 
     CriteriaBuilder builder = em.getCriteriaBuilder();
+
+    public Creneau find(int id)
+    {
+        return em.find(Creneau.class, id);
+    }
+
     public List<Creneau> findAll()
     {
         CriteriaQuery<Creneau> query = builder.createQuery(Creneau.class);
