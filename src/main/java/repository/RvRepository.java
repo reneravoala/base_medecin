@@ -28,6 +28,8 @@ public class RvRepository {
         Root<RV> rv = query.from(RV.class);
         query.select(rv);
         rv.join("creneau");
+
+        em.clear();
         return em.createQuery(query).getResultList();
     }
 

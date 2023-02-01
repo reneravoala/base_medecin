@@ -29,6 +29,7 @@ public class ClientRepository {
         query.select(m);
         query.where(builder.like(m.get("nom"), "%" + search + "%"));
 
+        em.clear();
         return em.createQuery(query).getResultList();
     }
 

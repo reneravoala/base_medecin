@@ -29,6 +29,7 @@ public class MedecinRepository {
         query.select(m);
         query.where(builder.like(m.get("nom"), "%" + search + "%"));
 
+        em.clear();
         return em.createQuery(query).getResultList();
     }
 
@@ -37,12 +38,12 @@ public class MedecinRepository {
         return findAll("");
     }
 
-    public Medecin save(Medecin Medecin)
+    public Medecin save(Medecin medecin)
     {
         em.getTransaction().begin();
-        em.persist(Medecin);
+        em.persist(medecin);
         em.getTransaction().commit();
-        return Medecin;
+        return medecin;
     }
 
     public void delete(Medecin Medecin)
