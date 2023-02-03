@@ -48,6 +48,8 @@ public class ClientRepository {
 
     public void delete(Client Client)
     {
+        em.getTransaction().begin();
         em.remove(Client);
+        em.getTransaction().commit();
     }
 }
