@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -26,6 +28,7 @@ public class Client implements Serializable {
     private String prenom;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private Collection<RV> rv;
 
     public Client() {

@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -24,6 +26,7 @@ public class Medecin implements Serializable {
     private String prenom;
 
     @OneToMany(mappedBy = "medecin")
+    @JsonIgnore
     private List<Creneau> creneaux;
 
     public Integer getId() {

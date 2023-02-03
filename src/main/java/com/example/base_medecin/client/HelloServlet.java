@@ -1,5 +1,6 @@
 package com.example.base_medecin.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import entity.Client;
 import repository.ClientRepository;
 
@@ -19,10 +20,10 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        List<Client> clients = ClientRepository.findAll();
-        response.setContentType("text/html");
-        request.setAttribute("clients", clients);
-        request.getRequestDispatcher("/client/list.jsp").forward(request, response);
+        Client clients = ClientRepository.find(1);
+        response.setContentType("application/json");
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(response.getOutputStream(), clients);
     }
 
     public void destroy() {

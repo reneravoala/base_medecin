@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -27,6 +29,7 @@ public class Creneau implements Serializable {
     private Integer mFin;
 
     @OneToMany(mappedBy = "creneau")
+    @JsonIgnore
     private List<RV> rv;
 
     @ManyToOne
