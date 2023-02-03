@@ -46,8 +46,10 @@ public class MedecinRepository {
         return medecin;
     }
 
-    public void delete(Medecin Medecin)
+    public void delete(Medecin medecin)
     {
-        em.remove(Medecin);
+        em.getTransaction().begin();
+        em.remove(medecin);
+        em.getTransaction().commit();
     }
 }
