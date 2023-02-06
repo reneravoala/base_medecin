@@ -40,4 +40,11 @@ public class CreneauRepository {
         em.getTransaction().commit();
         return creneau;
     }
+
+    public void delete(Creneau creneau)
+    {
+        em.getTransaction().begin();
+        em.remove(creneau);
+        em.getTransaction().commit();
+    }
 }

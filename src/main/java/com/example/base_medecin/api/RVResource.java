@@ -1,8 +1,10 @@
 package com.example.base_medecin.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import entity.Client;
+import entity.RV;
 import repository.ClientRepository;
+import repository.CreneauRepository;
+import repository.RvRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "clientIndexservlet", value = "/api/clients")
-public class ClientResource extends HttpServlet {
+@WebServlet(name = "rvIndexservlet", value = "/api/rvs")
+public class RVResource extends HttpServlet {
+    private final RvRepository rvRepository = new RvRepository();
     private final ClientRepository clientRepository = new ClientRepository();
+    private final CreneauRepository creneauRepository = new CreneauRepository();
 
     @Override
     public void init() throws ServletException {
@@ -22,40 +26,39 @@ public class ClientResource extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        List<Client> clients = clientRepository.findAll();
+        List<RV> rvx = rvRepository.findAll();
         response.setContentType("application/json");
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(response.getOutputStream(), clients);
+        mapper.writeValue(response.getOutputStream(), rvx);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         ObjectMapper mapper = new ObjectMapper();
-        Client client = mapper.readValue(request.getInputStream(), Client.class);
-        clientRepository.save(client);
+        RV rv = mapper.readValue(request.getInputStream(), RV.class);
+        rvRepository.save(rv);
         response.setContentType("application/json");
-        mapper.writeValue(response.getOutputStream(), client);
+        mapper.writeValue(response.getOutputStream(), rv);
     }
 
     public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         ObjectMapper mapper = new ObjectMapper();
-        Client c = mapper.readValue(request.getInputStream(), Client.class);
-        Client client = clientRepository.find(c.getId());
-        client.setNom(c.getNom());
-        client.setPrenom(c.getPrenom());
-        client.setVersion(c.getVersion());
-        client.setTitre(c.getTitre());
-        clientRepository.save(client);
+        RV r = mapper.readValue(request.getInputStream(), RV.class);
+        RV rv = rvRepository.find(r.getId());
+        rv.setJour(r.getJour());
+        rv.setCreneau(creneauRepository.find(r.getCreneau().getId()));
+        rv.setClient(clientRepository.find(r.getClient().getId()));
+        rvRepository.save(rv);
         response.setContentType("application/json");
-        mapper.writeValue(response.getOutputStream(), client);
+        mapper.writeValue(response.getOutputStream(), rv);
     }
 
     public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         ObjectMapper mapper = new ObjectMapper();
-        Client client = mapper.readValue(request.getInputStream(), Client.class);
-        client = clientRepository.find(client.getId());
-        clientRepository.delete(client);
+        RV rv = mapper.readValue(request.getInputStream(), RV.class);
+        rv = rvRepository.find(rv.getId());
+        rvRepository.delete(rv);
         response.setContentType("application/json");
-        response.setStatus(200);
+        mapper.writeValue(response.getOutputStream(), rv);
     }
 
     public void destroy() {
