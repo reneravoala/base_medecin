@@ -45,7 +45,7 @@ public class AddServlet extends HttpServlet {
         creneau.setMedecin(medecinRepository.find(medecins_id));
 
         creneauRepository.save(creneau);
-        response.sendRedirect(request.getContextPath() + "/creneau");
+        response.sendRedirect(request.getContextPath() + "/creneau/index");
     }
 
 
