@@ -183,9 +183,6 @@
         d = new Date(year, month, day);
         theme = d > new Date() ? 'blue' : 'red';
         theme = d == new Date() ? 'green': theme;
-        console.log(d);
-        console.log(new Date());
-        console.log('_______________');
         var rvObj = {
             event_date: d,
             event_title: "${rv.getCreneau().getMedecin().getNomComplet()} : ${rv.getClient().getNomComplet()}",
