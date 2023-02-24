@@ -60,6 +60,8 @@ public class RvRepository {
 
     public void delete(RV rv)
     {
+        em.getTransaction().begin();
         em.remove(rv);
+        em.getTransaction().commit();
     }
 }

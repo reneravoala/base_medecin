@@ -39,6 +39,12 @@ public class HelloServlet extends HttpServlet {
         request.getRequestDispatcher("/rv/list.jsp").forward(request, response);
     }
 
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        rvRepository.delete(rvRepository.find(id));
+        response.sendRedirect(request.getContextPath() + "/rv/index");
+    }
+
     public void destroy() {
     }
 }

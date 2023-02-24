@@ -42,8 +42,12 @@
                             <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">${rv.getClient().getNom()} ${rv.getClient().getPrenom()}</td>
                             <td class="whitespace-nowrap p-4 text-sm text-gray-500">${rv.getJourString()}</td>
                             <td class="whitespace-nowrap p-4 text-sm text-gray-500">${rv.getCreneau().getHeureDebut()} - ${rv.getCreneau().getHeureFin()} (${rv.getCreneau().getMedecin().getNomComplet()})</td>
-                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                <a href="${pageContext.request.contextPath}/rv/edit?id=${rv.id}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                            <td class="flex gap-4 relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                <a href="${pageContext.request.contextPath}/rv/edit?id=${rv.id}" class="p-2 rounded text-indigo-600 hover:bg-indigo-100">Modifier</a>
+                                <form action="" method="post" onsubmit="return confirm('Etes-vous sûr de vouloir annuler ce rendez-vous ?');">
+                                    <input type="hidden" name="id" value="${rv.id}">
+                                    <button type="submit" class="p-2 rounded text-red-600 hover:bg-red-100">Annulez</button>
+                                </form>
                             </td>
                         </tr>
                         </c:forEach>
